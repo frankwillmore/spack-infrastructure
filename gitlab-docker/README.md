@@ -74,6 +74,10 @@ Set the generated runner registration token.
  - Take note of the registration token under "Set up a shared
    Runner manually".
 
+
+FTW: Executing ```env``` inside the runner containers without setting and sourcing the token value via my-vars.sh would show the default value of "REQUIRED". Does gitlab need to be stopped and then restarted with this value, or is that what ```reconfigure``` above is doing? 
+
+
 ```
 $EDITOR my-vars.sh # set RUNNER_REGISTRATION_TOKEN
 source my-vars.sh
