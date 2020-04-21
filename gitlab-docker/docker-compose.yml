@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.3'
 volumes:
   meta: {}
   etc: {}
@@ -73,13 +73,14 @@ services:
     ports:
       - "${NGINX_WEB_PORT}:80"
     environment:
+      HTTPS_PROXY: "http://proxy.mcp.alcf.anl.gov:3128"
       DOCKER_TLS_CERTDIR: "" # disable TLS
 
   rshell:
     image: "gitlab/gitlab-runner"
     volumes:
       - "./files:/files"
-    init: true
+    #init: true
     entrypoint: ["bash"]
     command: ["/files/runner.bash"]
     depends_on:
@@ -97,7 +98,7 @@ services:
     image: gitlab/gitlab-runner
     volumes:
       - "./files:/files"
-    init: true
+    #init: true
     entrypoint: ["bash"]
     command: ["/files/runner.bash"]
     depends_on:
@@ -116,6 +117,7 @@ services:
       RUNNER_EXECUTOR: docker
       REGISTER_NON_INTERACTIVE: 'true'
       RUNNER_TAG_LIST: "docker,spack-pre-ci,spack-post-ci,spack-k8s"
+      #HTTPS_PROXY: "http://proxy.mcp.alcf.anl.gov"
 
   nginx:
     image: docker

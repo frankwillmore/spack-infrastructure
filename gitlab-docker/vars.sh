@@ -6,7 +6,7 @@
 ###      instructions in the README)
 ################################################
 
-export RUNNER_REGISTRATION_TOKEN="REQUIRED"
+export RUNNER_REGISTRATION_TOKEN="PxxC4knHWsEWNeMYNkxG"
 
 
 
@@ -18,7 +18,7 @@ export RUNNER_REGISTRATION_TOKEN="REQUIRED"
 ### Gitlab admin password.
 ### Min 8 characters.
 ### Login name is "root"
-# export GITLAB_ROOT_PASS=gitlab-secret
+export GITLAB_ROOT_PASS=gitlab-secret
 
 ### CDash admin password.
 ### Min 8 characters.
