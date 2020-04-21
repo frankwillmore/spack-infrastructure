@@ -1,5 +1,8 @@
 #! /usr/bin/bash
 
+echo "FTW: dumping environment"
+env
+
 apt-get -qyy update
 apt-get -qyy install                                      \
         build-essential ca-certificates curl       g++    \
@@ -55,6 +58,7 @@ stop() {
 
 __dirty=1
 cleanup() {
+    echo "FTW: running cleanup"
     if [ "$__dirty" '=' '0' ] ; then
         return
     fi
@@ -73,5 +77,8 @@ cleanup() {
 trap "cleanup" INT TERM QUIT
 trap "cleanup" EXIT
 
+echo "FTW: forcing registration"
 force_register
+
+echo "FTW: run()"
 run
